@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>:: Orniello :: About Lydia Valant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ── ABOUT PAGE SPECIFIC STYLES ── */
+
+  .about-hero {
+    padding: 10rem 5rem 5rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .about-hero .eyebrow {
+    color: var(--bronze);
+  }
+
+  .about-hero h1 {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .about-hero .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── CONTENT LAYOUT ── */
+  .about-body {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5rem 7rem;
+    align-items: start;
+  }
+
+  /* ── PROSE ── */
+  .about-prose {
+    color: var(--ink-soft);
+  }
+
+  .about-prose section {
+    margin-bottom: 3.5rem;
+  }
+
+  .about-prose h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about-prose h2::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--bronze);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .about-prose p {
+    font-size: 0.97rem;
+    line-height: 1.95;
+    color: var(--ink-soft);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-prose a {
+    color: var(--bronze);
+    text-decoration: none;
+    border-bottom: 1px solid var(--bronze-light);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .about-prose a:hover {
+    color: var(--bronze-dark);
+    border-color: var(--bronze);
+  }
+
+  /* ── SIDEBAR ── */
+  .about-sidebar {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .sidebar-photo {
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .sidebar-photo::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    right: 1rem;
+    bottom: 1rem;
+    border: 1px solid var(--border);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .sidebar-photo img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(8%) saturate(88%);
+  }
+
+  .sidebar-facts {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+
+  .sidebar-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-fact-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .sidebar-fact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--border);
+    margin-top: 0.5rem;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.8rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.57rem;
+    top: 0.4rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bronze-light);
+    border: 1px solid var(--bronze);
+  }
+
+  .timeline-year {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-text {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── PORTFOLIO BLOCK ── */
+  .portfolio-section {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 6rem 5rem;
+    margin-bottom: 0;
+  }
+
+  .portfolio-section .section-header {
+    max-width: 860px;
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+
+  .portfolio-section .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-section .section-header p {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .portfolio-item {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    padding: 1.8rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+
+  .portfolio-item:hover {
+    border-color: var(--bronze-light);
+    transform: translateY(-2px);
+  }
+
+  .portfolio-year {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .portfolio-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .portfolio-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── CONTACT STRIP ── */
+  .about-contact-strip {
+    text-align: center;
+    padding: 5rem 5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-contact-strip p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-hero { padding: 8rem 2rem 3rem; }
+    .about-body { grid-template-columns: 1fr; padding: 0 2rem 5rem; gap: 3rem; }
+    .about-sidebar { position: static; }
+    .portfolio-section { padding: 4rem 2rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .about-contact-strip { padding: 3rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="logo">Orni<span>ello</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#featured" data-en="Shop" data-de="Shop">Shop</a></li>
+    <li><a href="index.html#commissions" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a></li>
+    <li><a href="about.html" data-en="About" data-de="Über mich" style="color: var(--bronze-dark);">About</a></li>
+    <li><a href="index.html#events" data-en="Events" data-de="Termine">Events</a></li>
+    <li><a href="index.html#contact" data-en="Contact" data-de="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()" aria-label="Close menu">✕</button>
+  <a href="index.html#featured" onclick="toggleMenu()">Shop</a>
+  <a href="index.html#commissions" onclick="toggleMenu()">Commissions</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="index.html#events" onclick="toggleMenu()">Events</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="about-hero">
+  <div class="eyebrow" data-en="The Maker" data-de="Die Macherin">The Maker</div>
+  <h1>Lydia Valant</h1>
+  <p class="subtitle" data-en="Archaeologist · Jewelry Artist · Reenactor" data-de="Archäologin · Schmuckkünstlerin · Reenactorin">Archaeologist · Jewelry Artist · Reenactor</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="about-body">
+
+  <!-- LEFT: PROSE -->
+  <div class="about-prose">
+
+    <section>
+      <h2 data-en="The beginning" data-de="Der Anfang">The beginning</h2>
+      <p data-en="Jewelry and history have been my passion since childhood. At the age of 13 I made my first metal jewelry piece; in my early twenties I earned my first money selling them at medieval fairs. Though I started with LARP and fantasy jewelry, as the years went on I became more interested in historical styles."
+         data-de="Schmuck und Geschichte begleiten mich seit meiner Kindheit. Mit 13 Jahren fertigte ich mein erstes Metallschmuckstück; Anfang zwanzig verdiente ich damit mein erstes Geld auf Mittelaltermärkten. Ich begann zwar mit LARP- und Fantasyschmuck, doch im Laufe der Jahre wurde ich immer mehr von historischen Stilen fasziniert.">
+        Jewelry and history have been my passion since childhood. At the age of 13 I made my first metal jewelry piece; in my early twenties I earned my first money selling them at medieval fairs. Though I started with LARP and fantasy jewelry, as the years went on I became more interested in historical styles.
+      </p>
+      <p data-en="Now, my focus is on reenactment and the recreation of historical jewelry and accessories. I'm still working at medieval fairs and museum events – you can see the dates <a href='index.html#events'>here</a>. For booking me and my booth, please note that due to bureaucratic reasons I'm staying in Austria for now."
+         data-de="Heute liegt mein Schwerpunkt auf Reenactment und der Nachbildung historischer Schmuckstücke und Accessoires. Ich bin weiterhin auf Mittelaltermärkten und Museumsveranstaltungen aktiv – die Termine findest du <a href='index.html#events'>hier</a>. Für Buchungen bitte beachten: Aus bürokratischen Gründen bin ich derzeit auf Österreich beschränkt.">
+        Now, my focus is on reenactment and the recreation of historical jewelry and accessories. I'm still working at medieval fairs and museum events – you can see the dates <a href="index.html#events">here</a>. For booking me and my booth, please note that due to bureaucratic reasons I'm staying in Austria for now.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-en="Education" data-de="Ausbildung">Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2012</div>
+          <p class="timeline-text" data-en="Master's degree in Provincial Archaeology, University of Graz."
+             data-de="Masterabschluss in Provinzialrömischer Archäologie an der Universität Graz.">
+            Master's degree in Provincial Archaeology, University of Graz.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2017</div>
+          <p class="timeline-text" data-en="Published <em>Von Feuerböcken und Römersteinen</em>, a guide for local archaeology museums (ISBN 978-3-85365-289-3). Available to order at your local bookshop or online. Also offers school workshops about everyday life in Provincial Roman Austria."
+             data-de="Veröffentlichung von <em>Von Feuerböcken und Römersteinen</em>, einem Führer für regionale Archäologiemuseen (ISBN 978-3-85365-289-3). Erhältlich im lokalen Buchhandel oder online. Außerdem Schulworkshops zum Alltag im römischen Österreich.">
+            Published <em>Von Feuerböcken und Römersteinen</em>, a guide for local archaeology museums (ISBN 978-3-85365-289-3). Available to order at your local bookshop or online. Also offers school workshops about everyday life in Provincial Roman Austria.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019 – 2021</div>
+          <p class="timeline-text" data-en="Metal and Jewelry master class at Ortweinschule Graz, graduating as a certified jewelry artist in summer 2021."
+             data-de="Meisterklasse Metall und Schmuck an der Ortweinschule Graz, Abschluss als zertifizierte Schmuckkünstlerin im Sommer 2021.">
+            Metal and Jewelry master class at Ortweinschule Graz, graduating as a certified jewelry artist in summer 2021.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-en="Inspiration & craft" data-de="Inspiration & Handwerk">Inspiration & craft</h2>
+      <p data-en="I get inspired by archaeological finds or historical paintings from all over Europe and beyond, and think that a lot of jewelry from former times could be incorporated into modern fashion. Some styles were even <em>en vogue</em> for centuries – you wouldn't recognize the design as &ldquo;old&rdquo;."
+         data-de="Meine Inspiration finde ich in archäologischen Funden und historischen Gemälden aus ganz Europa und darüber hinaus. Ich bin überzeugt, dass sich vieles aus früheren Epochen wunderbar in die moderne Mode integrieren lässt. Manche Stile waren sogar jahrhundertelang <em>en vogue</em> – man würde das Design gar nicht als „alt" erkennen.">
+        I get inspired by archaeological finds or historical paintings from all over Europe and beyond, and think that a lot of jewelry from former times could be incorporated into modern fashion. Some styles were even <em>en vogue</em> for centuries – you wouldn't recognize the design as "old".
+      </p>
+      <p data-en="My creations are direct copies of or highly inspired by historical examples, but also modern interpretations of historical pieces."
+         data-de="Meine Arbeiten sind direkte Kopien oder stark von historischen Vorbildern inspiriert – aber auch moderne Interpretationen historischer Stücke.">
+        My creations are direct copies of or highly inspired by historical examples, but also modern interpretations of historical pieces.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-en="Materials" data-de="Materialien">Materials</h2>
+      <p data-en="The materials I use are silver, (real) bronze, and 14K–24K gilded brass, as well as standard findings, freshwater pearls, gemstones, and glass beads. Some pieces and materials are vintage and re-used in my designs, so a lot of my jewelry is unique and cannot be reproduced."
+         data-de="Ich arbeite mit Silber, (echtem) Bronze und 14K–24K vergoldetem Messing sowie Standardzubehör, Süßwasserperlen, Edelsteinen und Glasperlen. Manche Stücke und Materialien sind Vintage-Fundstücke, die ich in meinen Entwürfen neu verwende – daher sind viele meiner Schmuckstücke Unikate und nicht reproduzierbar.">
+        The materials I use are silver, (real) bronze, and 14K–24K gilded brass, as well as standard findings, freshwater pearls, gemstones, and glass beads. Some pieces and materials are vintage and re-used in my designs, so a lot of my jewelry is unique and cannot be reproduced.
+      </p>
+    </section>
+
+  </div>
+
+  <!-- RIGHT: SIDEBAR -->
+  <aside class="about-sidebar">
+    <div class="sidebar-photo">
+      <img src="https://orniello.com/wp-content/uploads/2025/07/W8A4116-3-706x1024.jpg" alt="Lydia Valant" />
+    </div>
+    <div class="sidebar-facts">
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label" data-en="Also known as" data-de="Auch bekannt als">Also known as</span>
+        <span class="sidebar-fact-value">Celefindel</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label" data-en="Based in" data-de="Ansässig in">Based in</span>
+        <span class="sidebar-fact-value">Graz, Austria</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label" data-en="Active since" data-de="Aktiv seit">Active since</span>
+        <span class="sidebar-fact-value">Est. 2012</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label" data-en="Shipping" data-de="Versand">Shipping</span>
+        <span class="sidebar-fact-value" data-en="Throughout Europe" data-de="Europaweit">Throughout Europe</span>
+      </div>
+      <div class="sidebar-fact">
+        <span class="sidebar-fact-label" data-en="Workshop rate" data-de="Werkstatttarif">Workshop rate</span>
+        <span class="sidebar-fact-value">€55/hr · Bead & cold work €50/hr</span>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section">
+  <div class="section-header">
+    <div class="ornament" style="text-align:left; margin-bottom: 1rem;">✦ ✦ ✦</div>
+    <h2 data-en="Collaborations & Portfolio" data-de="Kooperationen & Portfolio">Collaborations & Portfolio</h2>
+    <p data-en="Museums, publications, and events featuring work by Orniello." data-de="Museen, Publikationen und Veranstaltungen mit Arbeiten von Orniello.">Museums, publications, and events featuring work by Orniello.</p>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">2026</span>
+      <div class="portfolio-title">Römermuseum Carnuntum</div>
+      <p class="portfolio-desc" data-en="Roman jewelry for sale in the museum shop." data-de="Römischer Schmuck im Museumsshop erhältlich.">Roman jewelry for sale in the museum shop.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">2026</span>
+      <div class="portfolio-title">Museum im Lavanthaus, Wolfsberg</div>
+      <p class="portfolio-desc" data-en="Roman jewelry for sale in the museum shop." data-de="Römischer Schmuck im Museumsshop erhältlich.">Roman jewelry for sale in the museum shop.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">2024 – 2026</span>
+      <div class="portfolio-title">Weibsbilder – Frauen schreiben Geschichte</div>
+      <p class="portfolio-desc" data-en="Part of the reenactment event at Geschichtspark Bärnau-Tachov." data-de="Teilnahme am Reenactment-Event im Geschichtspark Bärnau-Tachov.">Part of the reenactment event at Geschichtspark Bärnau-Tachov.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">2024</span>
+      <div class="portfolio-title">Steirischer Herbst · Jan Peter Hammer, „Noreia"</div>
+      <p class="portfolio-desc" data-en="Counsellor and costume lending / costume designer for the historic scenes." data-de="Beratung und Kostümverleih / Kostümdesign für die historischen Szenen.">Counsellor and costume lending / costume designer for the historic scenes.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">2024</span>
+      <div class="portfolio-title">The Regency and Romantic Dressmaker</div>
+      <p class="portfolio-desc" data-en="Collaboration with Izabela Pitcher, featuring jewelry by Orniello." data-de="Kooperation mit Izabela Pitcher, mit Schmuck von Orniello.">Collaboration with Izabela Pitcher, featuring jewelry by Orniello.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">2023 –</span>
+      <div class="portfolio-title">Tempelmuseum Frauenberg</div>
+      <p class="portfolio-desc" data-en="Roman jewelry for sale in the museum shop since 2023." data-de="Römischer Schmuck seit 2023 im Museumsshop erhältlich.">Roman jewelry for sale in the museum shop since 2023.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <span class="portfolio-year">Jan 2026</span>
+      <div class="portfolio-title">Interview · Redthreaded</div>
+      <p class="portfolio-desc" data-en="Feature interview about historical jewelry recreation and reenactment craft." data-de="Feature-Interview über historische Schmuckrekonstruktion und Reenactment.">Feature interview about historical jewelry recreation and reenactment craft.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="about-contact-strip">
+  <div class="ornament">✦</div>
+  <p data-en="Interested in collaborating? Whether for museums, books, or other projects – get in touch." data-de="Interesse an einer Zusammenarbeit? Ob für Museen, Bücher oder andere Projekte – melde dich gerne.">Interested in collaborating? Whether for museums, books, or other projects – get in touch.</p>
+  <a href="index.html#contact" class="btn-primary" data-en="Write me" data-de="Schreib mir">Write me</a>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-brand">
+    <a href="index.html" class="logo">Orni<span>ello</span></a>
+    <p data-en="Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping throughout Europe."
+       data-de="Historische Schmuckrepliken mit archäologischer Präzision und dem Handwerk einer ausgebildeten Schmuckdesignerin. Aus Graz, Österreich. Versand in ganz Europa.">
+      Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping throughout Europe.
+    </p>
+  </div>
+  <div>
+    <h4 data-en="Navigation" data-de="Navigation">Navigation</h4>
+    <ul>
+      <li><a href="index.html#featured" data-en="Shop" data-de="Shop">Shop</a></li>
+      <li><a href="index.html#commissions" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a></li>
+      <li><a href="about.html" data-en="About Lydia" data-de="Über Lydia">About Lydia</a></li>
+      <li><a href="index.html#events" data-en="Events 2026" data-de="Termine 2026">Events 2026</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 data-en="Contact" data-de="Kontakt">Contact</h4>
+    <ul>
+      <li><a href="#" data-en="Write a message" data-de="Nachricht schreiben">Write a message</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#" data-en="Etsy Shop" data-de="Etsy Shop">Etsy Shop</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Lydia Valant · Orniello</p>
+  <p><a href="#" style="color: inherit;" data-en="Imprint" data-de="Impressum">Imprint</a> &nbsp;·&nbsp; <a href="#" style="color: inherit;" data-en="Privacy Policy" data-de="Datenschutz">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://prieschl.it" target="_blank" style="color: inherit;">Design by prieschl:it</a></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
