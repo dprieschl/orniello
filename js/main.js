@@ -3,10 +3,17 @@
     const btn = document.getElementById('hamburger');
     menu.classList.toggle('open');
     btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', menu.classList.contains('open'));
     document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
   }
 
-  function setLang(lang) {
+  // localStorage can be blocked (private mode, cookie settings) - never let that break the page
+  function storedLang() {
+    try { return localStorage.getItem('orniello-lang') || 'en'; } catch (e) { return 'en'; }
+  }
+
+  // persist = false is used for the initial render, so nothing is stored until the visitor actively picks a language
+  function setLang(lang, persist = true) {
     // Update all elements with data-en / data-de
     document.querySelectorAll('[data-en]').forEach(el => {
       el.innerHTML = el.getAttribute('data-' + lang);
@@ -21,11 +28,21 @@
     document.documentElement.lang = lang;
 
     // Save preference
-    localStorage.setItem('orniello-lang', lang);
+    if (persist) {
+      try { localStorage.setItem('orniello-lang', lang); } catch (e) { /* ignore */ }
+    }
+
+    // Tell scripts that build content from data (e.g. the portfolio)
+    document.dispatchEvent(new CustomEvent('orniello:langchange', { detail: { lang } }));
   }
+
+  // Escape closes the mobile menu
+  document.addEventListener('keydown', e => {
+    const menu = document.getElementById('mobileMenu');
+    if (e.key === 'Escape' && menu && menu.classList.contains('open')) toggleMenu();
+  });
 
   // On load: apply saved language
   document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('orniello-lang') || 'en';
-    setLang(saved);
+    setLang(storedLang(), false);
   });

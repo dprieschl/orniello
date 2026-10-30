@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Orniello</title>
+<meta name="description" content="Historical jewelry replicas and commissioned pieces by Orniello, from antiquity to the 19th century.">
+<link rel="preload" href="fonts/jost-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Orni<span>ello</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#featured" data-en="Shop" data-de="Shop">Shop</a></li>
+    <li><a href="commissions.html" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a></li>
+    <li><a href="about.html" data-en="About" data-de="Über mich">About</a></li>
+    <li><a href="portfolio.html" class="active" data-en="Portfolio" data-de="Portfolio">Portfolio</a></li>
+    <li><a href="index.html#events" data-en="Events" data-de="Termine">Events</a></li>
+    <li><a href="contact.html" data-en="Contact" data-de="Kontakt">Contact</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()" aria-label="Close menu">✕</button>
+  <a href="index.html#featured" onclick="toggleMenu()" data-en="Shop" data-de="Shop">Shop</a>
+  <a href="commissions.html" onclick="toggleMenu()" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a>
+  <a href="about.html" onclick="toggleMenu()" data-en="About" data-de="Über mich">About</a>
+  <a href="portfolio.html" onclick="toggleMenu()" data-en="Portfolio" data-de="Portfolio">Portfolio</a>
+  <a href="index.html#events" onclick="toggleMenu()" data-en="Events" data-de="Termine">Events</a>
+  <a href="contact.html" onclick="toggleMenu()" data-en="Contact" data-de="Kontakt">Contact</a>
+  <div class="lang-switcher" style="margin-top:1rem;">
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="eyebrow" data-en="Handcrafted Works" data-de="Handgefertigte Arbeiten">Handcrafted Works</div>
+  <h1 data-en="Portfolio" data-de="Portfolio">Portfolio</h1>
+  <p data-en="A selection of historical jewelry replicas and commissioned pieces, spanning from antiquity to the 19th century." data-de="Eine Auswahl historischer Schmuckrepliken und Auftragsarbeiten — von der Antike bis ins 19. Jahrhundert.">A selection of historical jewelry replicas and commissioned pieces, spanning from antiquity to the 19th century.</p>
+</div>
+
+<!-- FILTER BAR (Eintraege werden ausgeblendet, wenn es in der Epoche kein Stueck gibt) -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label" data-en="Filter:" data-de="Filter:">Filter:</span>
+  <button class="filter-btn active" aria-pressed="true" data-filter="all" data-en="All" data-de="Alle">All</button>
+  <button class="filter-btn" aria-pressed="false" data-filter="antiquity" data-en="Antiquity" data-de="Antike">Antiquity</button>
+  <button class="filter-btn" aria-pressed="false" data-filter="migration" data-en="Migration Period" data-de="Völkerwanderung">Migration Period</button>
+  <button class="filter-btn" aria-pressed="false" data-filter="medieval" data-en="Medieval" data-de="Mittelalter">Medieval</button>
+  <button class="filter-btn" aria-pressed="false" data-filter="renaissance" data-en="Renaissance" data-de="Renaissance">Renaissance</button>
+  <button class="filter-btn" aria-pressed="false" data-filter="modern" data-en="Modern Era" data-de="Neuzeit">Modern Era</button>
+</div>
+
+<!-- PORTFOLIO GRID: wird aus js/portfolio-data.js erzeugt -->
+<div class="portfolio-grid" id="portfolioGrid"></div>
+<noscript>
+  <p class="portfolio-empty" style="padding: 3rem 2rem;">
+    Bitte JavaScript aktivieren, um das Portfolio zu sehen. / Please enable JavaScript to see the portfolio.<br>
+    <a href="https://www.instagram.com/orniello_by_celefindel/">Instagram</a> · <a href="https://www.etsy.com/shop/Orniello">Etsy</a>
+  </p>
+</noscript>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxName">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">✕</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lightboxImg" alt="" />
+    <div class="lightbox-details">
+      <div class="lightbox-eyebrow" id="lightboxEra"></div>
+      <div class="lightbox-name" id="lightboxName"></div>
+      <div class="lightbox-facts" id="lightboxFacts"></div>
+      <div class="lightbox-description" id="lightboxDesc"></div>
+      <div class="lightbox-actions" id="lightboxActions"></div>
+      <div class="lightbox-nav">
+        <button type="button" id="lightboxPrev" data-en="← Previous" data-de="← Vorheriges">← Previous</button>
+        <button type="button" id="lightboxNext" data-en="Next →" data-de="Nächstes →">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <a href="index.html" class="logo">Orni<span>ello</span></a>
+    <p data-en="Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping to most of Europe."
+       data-de="Historische Schmuckrepliken mit archäologischer Präzision und dem Handwerk einer ausgebildeten Schmuckdesignerin. Aus Graz, Österreich. Versand in weite Teile Europas.">
+      Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping to most of Europe.
+    </p>
+  </div>
+  <div>
+    <h4 data-en="Navigation" data-de="Navigation">Navigation</h4>
+    <ul>
+      <li><a href="index.html#featured" data-en="Shop" data-de="Shop">Shop</a></li>
+      <li><a href="commissions.html" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a></li>
+      <li><a href="about.html" data-en="About Lydia" data-de="Über Lydia">About Lydia</a></li>
+      <li><a href="index.html#events" data-en="Events 2026" data-de="Termine 2026">Events 2026</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 data-en="Find me" data-de="Kontakt & Social">Find me</h4>
+    <ul>
+      <li><a href="contact.html" data-en="Write a message" data-de="Nachricht schreiben">Write a message</a></li>
+      <li><a href="https://www.instagram.com/orniello_by_celefindel/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/Orniello/" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://www.etsy.com/shop/Orniello" target="_blank" rel="noopener">Etsy Shop</a></li>
+    </ul>
+    <p style="font-size: 0.75rem; color: rgba(245,240,232,0.5); margin-top: 1rem; line-height: 1.6;"
+       data-en="Not everything is online – if you're looking for something special, just contact me."
+       data-de="Nicht alles ist online – für besondere Wünsche einfach melden.">
+      Not everything is online – if you're looking for something special, just contact me.
+    </p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Lydia Valant · Orniello</p>
+  <p><a href="impressum.html" style="color: inherit;" data-en="Imprint" data-de="Impressum">Imprint</a> &nbsp;·&nbsp; <a href="datenschutz.html" style="color: inherit;" data-en="Privacy Policy" data-de="Datenschutz">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://prieschl.it" target="_blank" style="color: inherit;">Design by prieschl:it</a></p>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/portfolio-data.js"></script>
+<script src="js/portfolio.js"></script>
+</body>
+</html>

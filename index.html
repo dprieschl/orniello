@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>:: Orniello :: Historical Jewelry Replicas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Historical Jewelry Replicas | Orniello</title>
+<meta name="description" content="Handcrafted replicas of historical jewelry from the Bronze Age to the Biedermeier, made by archaeologist and jewelry artist Lydia Valant in Graz, Austria.">
+<link rel="preload" href="fonts/jost-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -16,17 +17,18 @@
   <a href="#" class="logo">Orni<span>ello</span></a>
   <ul class="nav-links">
     <li><a href="#featured" data-en="Shop" data-de="Shop">Shop</a></li>
-    <li><a href="#commissions" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a></li>
-    <li><a href="#about" data-en="About" data-de="Über mich">About</a></li>
+    <li><a href="commissions.html" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a></li>
+    <li><a href="about.html" data-en="About" data-de="Über mich">About</a></li>
+    <li><a href="portfolio.html" data-en="Portfolio" data-de="Portfolio">Portfolio</a></li>
     <li><a href="#events" data-en="Events" data-de="Termine">Events</a></li>
-    <li><a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a></li>
+    <li><a href="contact.html" data-en="Contact" data-de="Kontakt">Contact</a></li>
   </ul>
   <div class="lang-switcher">
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <span class="lang-divider">|</span>
     <button class="lang-btn" onclick="setLang('de')">DE</button>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -35,10 +37,11 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" onclick="toggleMenu()" aria-label="Close menu">✕</button>
   <a href="#featured" onclick="toggleMenu()" data-en="Shop" data-de="Shop">Shop</a>
-  <a href="#commissions" onclick="toggleMenu()" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a>
-  <a href="#about" onclick="toggleMenu()" data-en="About" data-de="Über mich">About</a>
+  <a href="commissions.html" onclick="toggleMenu()" data-en="Commissions" data-de="Auftragsarbeiten">Commissions</a>
+  <a href="about.html" onclick="toggleMenu()" data-en="About" data-de="Über mich">About</a>
+  <a href="portfolio.html" onclick="toggleMenu()" data-en="Portfolio" data-de="Portfolio">Portfolio</a>
   <a href="#events" onclick="toggleMenu()" data-en="Events" data-de="Termine">Events</a>
-  <a href="#contact" onclick="toggleMenu()" data-en="Contact" data-de="Kontakt">Contact</a>
+  <a href="contact.html" onclick="toggleMenu()" data-en="Contact" data-de="Kontakt">Contact</a>
   <div class="lang-switcher">
     <button class="lang-btn" onclick="setLang('en')">EN</button>
     <span class="lang-divider">|</span>
@@ -49,18 +52,18 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <span class="eyebrow">Graz, Austria :: Est. 2012</span>
+    <span class="eyebrow">Graz, Austria :: Est. 2021</span>
     <h1 data-en="Historical jewelry,<br><em>faithfully</em><br>recreated." data-de="Historischer Schmuck,<br><em>authentisch</em><br>nachgebildet.">Historical jewelry,<br><em>faithfully</em><br>recreated.</h1>
     <p class="hero-text" data-en="From the Bronze Age to the Biedermeier - handcrafted replicas made with archaeological precision and the craft of a trained jewelry designer. Each piece carries centuries of history." data-de="Von der Bronzezeit bis zum Biedermeier - handgefertigte Repliken mit archäologischer Präzision und dem Handwerk einer ausgebildeten Schmuckdesignerin. Jedes Stück trägt Jahrhunderte Geschichte in sich.">From the Bronze Age to the Biedermeier - handcrafted replicas made with archaeological precision and the craft of a trained jewelry designer. Each piece carries centuries of history.</p>
     <div class="hero-ctas">
       <a href="#featured" class="btn-primary" data-en="Explore the Shop" data-de="Zum Shop">Explore the Shop</a>
-      <a href="#commissions" class="btn-secondary" data-en="Commission a Piece" data-de="Auftragsarbeit anfragen">Commission a Piece</a>
+      <a href="commissions.html" class="btn-secondary" data-en="Commission a Piece" data-de="Auftragsarbeit anfragen">Commission a Piece</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-img-wrap">
       <!-- In der echten Version: src="echtes Produktfoto" -->
-      <img src="https://orniello.com/wp-content/uploads/2023/04/IMG_9658-1-1024x747.jpg" alt="Historical jewelry by Orniello" />
+      <img src="images/ringaufsteinen.jpg" alt="Historical jewelry by Orniello" />
     </div>
     <span class="hero-img-caption">Roman Fibula · 2nd Century AD</span>
   </div>
@@ -91,30 +94,13 @@
     <h2 data-en="Selected Works" data-de="Ausgewählte Arbeiten">Selected Works</h2>
     <p data-en="Each piece is handcrafted using traditional techniques - wire-wrapping, casting, granulation, and bead-threading - with historically accurate materials." data-de="Jedes Stück wird mit traditionellen Techniken handgefertigt - Drahtwickeln, Gießen, Granulation und Perlenfädeln - mit historisch korrekten Materialien.">Each piece is handcrafted using traditional techniques - wire-wrapping, casting, granulation, and bead-threading - with historically accurate materials.</p>
   </div>
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="https://orniello.com/wp-content/uploads/2022/05/IMG_8447-1-776x1024.jpg" alt="16th Century Pendant" />
-      <div class="product-card-tag">Available</div>
-      <div class="product-card-overlay">
-        <div class="product-name">Pendant</div>
-        <div class="product-era">16th Century · Gemstones, Gilded Brass & Freshwater pearl</div>
-      </div>
-    </div>
-    <div class="product-card">
-      <img src="https://orniello.com/wp-content/uploads/2023/07/IMG_9630-1-Kopie-875x1024.jpg" alt="Art Nouveau Necklace" />
-      <div class="product-card-tag">Commission</div>
-      <div class="product-card-overlay">
-        <div class="product-name">Necklace</div>
-        <div class="product-era">Art Nouveau · Bronze, Silver, Serpentine</div>
-      </div>
-    </div>
-    <div class="product-card">
-      <img src="https://orniello.com/wp-content/uploads/2022/05/IMG_8667-1-1024x719.jpg" alt="Ostrogothic eagle fibulae" />
-      <div class="product-card-overlay">
-        <div class="product-name">Ostrogothic eagle fibulae</div>
-        <div class="product-era">~5th Century AD · Bronze, Enamel, Garnet</div>
-      </div>
-    </div>
+  <!-- wird aus js/portfolio-data.js erzeugt (Stuecke mit featured: true) -->
+  <div class="product-grid" id="featuredGrid"></div>
+  <noscript>
+    <p style="text-align:center;"><a href="portfolio.html">Zum Portfolio / View portfolio</a></p>
+  </noscript>
+  <div class="hero-ctas" style="justify-content: center; margin-top: 2.5rem;">
+    <a href="portfolio.html" class="btn-secondary" data-en="View full portfolio" data-de="Ganzes Portfolio ansehen">View full portfolio</a>
   </div>
 </section>
 
@@ -123,12 +109,12 @@
   <div>
     <div class="eyebrow" style="color: var(--bronze-light);" data-en="The Maker" data-de="Die Macherin">The Maker</div>
     <h2 data-en="Archaeology, craft,<br>and <em>living history</em>." data-de="Archäologie, Handwerk<br>und <em>gelebte Geschichte</em>.">Archaeology, craft,<br>and <em>living history</em>.</h2>
-    <p data-en="I'm Lydia Valant - archaeologist, jeweler, and passionate reenactor based in Graz. My fascination with historical adornment began at 13 with my first metal piece; it has since grown into a dedicated practice bridging academic research and artisan craft." data-de="Ich bin Lydia Valant - Archäologin, Schmuckdesignerin und begeisterte Reenactorin aus Graz. Meine Faszination für historischen Schmuck begann mit 13 Jahren; seither ist daraus eine Praxis gewachsen, die Forschung und Handwerk verbindet.">I'm Lydia Valant - archaeologist, jeweler, and passionate reenactor based in Graz. My fascination with historical adornment began at 13 with my first metal piece; it has since grown into a dedicated practice bridging academic research and artisan craft.</p>
-    <p data-en="My pieces are found in museum shops across Austria and worn at historical fairs throughout Europe. Every creation starts with a primary source - an archaeological find, a historical painting, a museum collection." data-de="Meine Stücke sind in Museumsshops in ganz Österreich erhältlich und werden auf Geschichtsmärkten in ganz Europa getragen. Jede Arbeit beginnt mit einer Primärquelle - einem archäologischen Fund, einem historischen Gemälde, einer Museumssammlung.">My pieces are found in museum shops across Austria and worn at historical fairs throughout Europe. Every creation starts with a primary source - an archaeological find, a historical painting, a museum collection.</p>
+    <p data-en="I'm Lydia Valant, jewelry maker. At about 13 I made my first metal jewelry piece; in my early twenties I earned my first money selling them at medieval fairs. Now, my focus is on reenactment and the recreation of historical jewelry and accessories." data-de="Ich bin Lydia Valant, Schmuckmacherin aus Leidenschaft. Mit etwa 13 Jahren fertigte ich mein erstes Schmuckstück aus Metall an; als junge Erwachsene verdiente ich mein erstes Geld damit, meine Arbeiten auf Mittelaltermärkten zu verkaufen. Heute liegt mein Schwerpunkt auf Reenactment sowie der Rekonstruktion historischen Schmucks und historischer Accessoires.">I'm Lydia Valant, jewelry maker. At about 13 I made my first metal jewelry piece; in my early twenties I earned my first money selling them at medieval fairs. Now, my focus is on reenactment and the recreation of historical jewelry and accessories.</p>
+    <p data-en="I get inspired by archaeological finds or historical paintings from all over Europe and beyond. My creations are direct copies of or highly inspired by historical examples, but also modern interpretations of historical pieces." data-de="Ich lasse mich von archäologischen Funden oder historischen Gemälden aus ganz Europa und darüber hinaus inspirieren. Meine Kreationen reichen von direkten Kopien oder stark an historischen Vorbildern orientierten Stücken bis hin zu modernen Interpretationen historischer Originale.">I get inspired by archaeological finds or historical paintings from all over Europe and beyond. My creations are direct copies of or highly inspired by historical examples, but also modern interpretations of historical pieces.</p>
     <a href="about.html" data-en="Read more about me →" data-de="Mehr über mich →">Read more about me →</a>
   </div>
   <div class="about-img-frame">
-    <img src="https://orniello.com/wp-content/uploads/2025/07/W8A4116-3-706x1024.jpg" alt="Lydia Valant, Orniello" />
+    <img loading="lazy" src="images/lydiamitbuch.jpg" alt="Lydia Valant, Orniello" />
   </div>
 </section>
 
@@ -137,30 +123,34 @@
   <div>
     <div class="eyebrow" data-en="Custom Work" data-de="Auftragsarbeiten">Custom Work</div>
     <h2 data-en="Commission a piece made for you." data-de="Ein Stück ganz nach deinen Wünschen.">Commission a piece made for you.</h2>
-    <p data-en="Have something specific in mind? Whether it's a faithful replica of a museum find, a piece from a historical painting, or a modern interpretation of an ancient style - I'll do my best to bring it to life." data-de="Hast du etwas Bestimmtes im Sinn? Ob treue Replik eines Museumsfunds, ein Stück aus einem historischen Gemälde oder eine moderne Interpretation eines alten Stils - ich versuche es umzusetzen.">Have something specific in mind? Whether it's a faithful replica of a museum find, a piece from a historical painting, or a modern interpretation of an ancient style - I'll do my best to bring it to life.</p>
-    <p style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--ink);">Workshop rate: €55/hr · Bead & cold work: €50/hr</p>
-    <a href="#contact" class="btn-primary" style="margin-top: 1.5rem; display: inline-block;">Get in touch</a>
+    <p data-en="You want a commission of something you saw in a painting, found in a museum or designed yourself? You want something from my shop but in another colour, size or length?" data-de="Du möchtest eine Auftragsarbeit für ein Stück, das du auf einem Gemälde gesehen, in einem Museum entdeckt oder selbst entworfen hast? Du hättest gerne etwas aus meinem Shop, aber in einer anderen Farbe, Größe oder Länge?">You want a commission of something you saw in a painting, found in a museum or designed yourself? You want something from my shop but in another colour, size or length?</p>
+    <p data-en="Write to me! A lot of things are possible to be (re)created or altered. I can't promise that I can do it, but I'll try my best to realize your wishes!" data-de="Schreib mir! Vieles lässt sich (neu) anfertigen oder abwandeln. Ich kann zwar nicht garantieren, dass es immer funktioniert, aber ich werde mein Bestes geben, um deine Wünsche zu erfüllen!">Write to me! A lot of things are possible to be (re)created or altered. I can't promise that I can do it, but I'll try my best to realize your wishes!</p>
+    <p style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--ink);" data-en="Workshop rate: €60/hr, excluding materials" data-de="Werkstatttarif: 60 € pro Stunde, zzgl. Material">Workshop rate: €60/hr, excluding materials</p>
+    <div class="hero-ctas" style="margin-top: 1.5rem;">
+      <a href="contact.html" class="btn-primary" data-en="Get in touch" data-de="Kontakt aufnehmen">Get in touch</a>
+      <a href="commissions.html" class="btn-secondary" data-en="Details &amp; FAQ" data-de="Details &amp; FAQ">Details &amp; FAQ</a>
+    </div>
   </div>
   <div class="commission-items">
     <div class="commission-item">
       <svg class="commission-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       <div>
-        <h4 data-en="Museum-quality Replicas" data-de="Museumsqualität-Repliken">Museum-quality Replicas</h4>
-        <p data-en="Faithful reproductions based on archaeological finds or historical sources. I research every detail to ensure accuracy." data-de="Getreue Reproduktionen auf Basis archäologischer Funde oder historischer Quellen. Ich recherchiere jedes Detail sorgfältig.">Faithful reproductions based on archaeological finds or historical sources. I research every detail to ensure accuracy.</p>
+        <h4 data-en="Custom Pieces" data-de="Individuelle Stücke">Custom Pieces</h4>
+        <p data-en="Something you saw in a painting, found in a museum or designed yourself. A lot of things can be (re)created – I'll try my best." data-de="Etwas von einem Gemälde, aus einem Museum oder dein eigener Entwurf. Vieles lässt sich (neu) anfertigen – ich gebe mein Bestes.">Something you saw in a painting, found in a museum or designed yourself. A lot of things can be (re)created – I'll try my best.</p>
       </div>
     </div>
     <div class="commission-item">
       <svg class="commission-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M2 12h4m12 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg>
       <div>
-        <h4 data-en="Bronze Casting" data-de="Bronzeguss">Bronze Casting</h4>
-        <p data-en="Lost-wax casting for unique bronze pieces. Better pricing available for series or reusable designs." data-de="Wachsausschmelzverfahren für einzigartige Bronzestücke. Bessere Preise bei Serien oder wiederverwendbaren Entwürfen.">Lost-wax casting for unique bronze pieces. Better pricing available for series or reusable designs.</p>
+        <h4 data-en="Casting in Bronze &amp; Silver" data-de="Guss in Bronze &amp; Silber">Casting in Bronze &amp; Silver</h4>
+        <p data-en="Designs carved in wax and cast at ~1100 °C. Better pricing if I can re-use the design or for a series. Silver is always cast by myself." data-de="Designs in Wachs modelliert und bei ca. 1100 °C gegossen. Bessere Preise bei Wiederverwendung des Designs oder Serien. Silber gieße ich immer selbst.">Designs carved in wax and cast at ~1100 °C. Better pricing if I can re-use the design or for a series. Silver is always cast by myself.</p>
       </div>
     </div>
     <div class="commission-item">
       <svg class="commission-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
       <div>
-        <h4 data-en="Alterations & Restorations" data-de="Änderungen & Restaurierungen">Alterations & Restorations</h4>
-        <p data-en="Size, color, closures - most shop items can be adapted. I also restore or repurpose your old pieces." data-de="Größe, Farbe, Verschlüsse - die meisten Stücke lassen sich anpassen. Ich restauriere oder verwandle auch alte Schmuckstücke.">Size, color, closures - most shop items can be adapted. I also restore or repurpose your old pieces.</p>
+        <h4 data-en="Alterations &amp; Repairs" data-de="Änderungen &amp; Reparaturen">Alterations &amp; Repairs</h4>
+        <p data-en="Size, colour, closures – most shop items can be adapted, free of charge unless the materials cost more. Old pieces can be turned into something new. No repairs of precious metal (Austrian trade regulations)." data-de="Größe, Farbe, Verschlüsse – die meisten Stücke lassen sich anpassen, kostenlos, sofern die Materialkosten nicht höher sind. Alte Stücke können zu etwas Neuem werden. Keine Reparatur von Edelmetall (österreichische Gewerbevorschriften).">Size, colour, closures – most shop items can be adapted, free of charge unless the materials cost more. Old pieces can be turned into something new. No repairs of precious metal (Austrian trade regulations).</p>
       </div>
     </div>
   </div>
@@ -213,16 +203,16 @@
 </section>
 
 <!-- FOOTER -->
-<footer id="contact">
+<footer>
   <div class="footer-brand">
     <a href="#" class="logo">Orni<span>ello</span></a>
-    <p data-en="Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping throughout Europe." data-de="Historische Schmuckrepliken mit archäologischer Präzision und dem Handwerk einer ausgebildeten Schmuckdesignerin. Aus Graz, Österreich. Versand in ganz Europa.">Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping throughout Europe.</p>
+    <p data-en="Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping to most of Europe." data-de="Historische Schmuckrepliken mit archäologischer Präzision und dem Handwerk einer ausgebildeten Schmuckdesignerin. Aus Graz, Österreich. Versand in weite Teile Europas.">Historical jewelry replicas made with archaeological precision and the craft of a trained jewelry designer. Based in Graz, Austria. Shipping to most of Europe.</p>
   </div>
   <div>
     <h4>Navigation</h4>
     <ul>
       <li><a href="#featured">Shop</a></li>
-      <li><a href="#commissions">Commissions</a></li>
+      <li><a href="commissions.html">Commissions</a></li>
       <li><a href="#about">About Lydia</a></li>
       <li><a href="#events">Events 2026</a></li>
     </ul>
@@ -230,12 +220,12 @@
   <div>
     <h4 data-en="Find me" data-de="Kontakt & Social">Find me</h4>
     <ul>
-      <li><a href="#" data-en="Write a message" data-de="Nachricht schreiben">Write a message</a></li>
+      <li><a href="contact.html" data-en="Write a message" data-de="Nachricht schreiben">Write a message</a></li>
       <li><a href="https://www.instagram.com/orniello_by_celefindel/" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="https://www.facebook.com/Orniello/" target="_blank" rel="noopener">Facebook</a></li>
       <li><a href="https://www.etsy.com/shop/Orniello" target="_blank" rel="noopener">Etsy Shop</a></li>
     </ul>
-    <p style="font-size: 0.75rem; color: rgba(245,240,232,0.3); margin-top: 1rem; line-height: 1.6;"
+    <p style="font-size: 0.75rem; color: rgba(245,240,232,0.5); margin-top: 1rem; line-height: 1.6;"
        data-en="Not everything is online – if you're looking for something special, just contact me."
        data-de="Nicht alles ist online – für besondere Wünsche einfach melden.">
       Not everything is online – if you're looking for something special, just contact me.
@@ -244,9 +234,11 @@
 </footer>
 <div class="footer-bottom">
   <p>© 2026 Lydia Valant · Orniello</p>
-  <p><a href="#" style="color: inherit;">Imprint</a> &nbsp;·&nbsp; <a href="#" style="color: inherit;">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://prieschl.it" target="_blank" style="color: inherit;">Design by prieschl:it</a></p>
+  <p><a href="impressum.html" style="color: inherit;" data-en="Imprint" data-de="Impressum">Imprint</a> &nbsp;·&nbsp; <a href="datenschutz.html" style="color: inherit;" data-en="Privacy Policy" data-de="Datenschutz">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://prieschl.it" target="_blank" style="color: inherit;">Design by prieschl:it</a></p>
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/portfolio-data.js"></script>
+<script src="js/portfolio.js"></script>
 </body>
 </html>
